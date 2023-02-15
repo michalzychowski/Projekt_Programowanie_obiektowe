@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="688.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projekt.EkranPielegniarki">
+   <children>
+      <TableView fx:id="pacjenci_tabela" prefHeight="412.0" prefWidth="924.0">
+        <columns>
+          <TableColumn fx:id="id_pacjenta_column" prefWidth="115.5" text="Id pacjenta" />
+          <TableColumn fx:id="imie_column" prefWidth="115.5" text="Imię" />
+            <TableColumn fx:id="nazwisko_column" prefWidth="115.5" text="Nazwisko" />
+            <TableColumn fx:id="pesel_column" prefWidth="115.5" text="PESEL" />
+            <TableColumn fx:id="data_ur_column" prefWidth="115.5" text="Data urodzenia" />
+            <TableColumn fx:id="adres_column" prefWidth="115.5" text="Adres" />
+            <TableColumn fx:id="nr_tel_column" prefWidth="115.5" text="Nr telefonu" />
+            <TableColumn fx:id="email_column" prefWidth="115.5" text="E-mail" />
+        </columns>
+      </TableView>
+      <Button fx:id="dodaj" layoutX="152.0" layoutY="535.0" mnemonicParsing="false" text="Dodaj pacjenta" />
+      <Button fx:id="edytuj" layoutX="330.0" layoutY="535.0" mnemonicParsing="false" text="Edytuj dane" />
+      <Button fx:id="usun" layoutX="505.0" layoutY="535.0" mnemonicParsing="false" text="Usuń pacjenta" />
+      <Button fx:id="umow" layoutX="696.0" layoutY="535.0" mnemonicParsing="false" text="Umów wizytę" />
+      <Button fx:id="wyloguj" layoutX="822.0" layoutY="633.0" mnemonicParsing="false" text="Wyloguj się" />
+   </children>
+</AnchorPane>

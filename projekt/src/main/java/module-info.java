@@ -1,8 +1,12 @@
-module com.example.projekt {
+open module com.example.projekt {
     requires javafx.controls;
     requires javafx.fxml;
+    requires org.hibernate.orm.core;
+    requires java.naming;
+    requires java.sql;
+    requires jakarta.persistence;
+    requires javafx.base;
 
-
-    opens com.example.projekt to javafx.fxml;
     exports com.example.projekt;
+    exports com.example.projekt.entity;
 }

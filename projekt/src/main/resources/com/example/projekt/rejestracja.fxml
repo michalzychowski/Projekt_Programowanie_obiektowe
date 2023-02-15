@@ -35,26 +35,31 @@
             </AnchorPane>
             <AnchorPane layoutX="380.0" layoutY="5.0" prefHeight="620.0" prefWidth="510.0" styleClass="tloPrawe" stylesheets="@../../../css/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="437.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <FontAwesomeIcon glyphName="USER_PLUS" layoutX="172.0" layoutY="125.0" size="10em" textAlignment="CENTER" wrappingWidth="121.5" />
-                  <Label alignment="CENTER" layoutX="149.0" layoutY="142.0" prefHeight="35.0" prefWidth="174.0" text="Zarejestruj się!">
+                  <FontAwesomeIcon glyphName="USER_PLUS" layoutX="174.0" layoutY="109.0" size="10em" textAlignment="CENTER" wrappingWidth="121.5" />
+                  <Label alignment="CENTER" layoutX="151.0" layoutY="126.0" prefHeight="35.0" prefWidth="174.0" text="Zarejestruj się!">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="email" layoutX="86.0" layoutY="213.0" prefHeight="40.0" prefWidth="300.0" promptText="Adres email" styleClass="poleTekstowe" stylesheets="@../../../css/login.css" AnchorPane.leftAnchor="86.60000000000002" AnchorPane.rightAnchor="50.799999999999955" />
-                  <PasswordField fx:id="haslo" layoutX="88.0" layoutY="330.0" prefHeight="40.0" prefWidth="300.0" promptText="Hasło" styleClass="poleTekstowe" stylesheets="@../../../css/login.css" AnchorPane.leftAnchor="88.60000000000002" AnchorPane.rightAnchor="50.799999999999955" />
-                  <Button fx:id="zarejestruj" layoutX="162.0" layoutY="458.0" mnemonicParsing="false" onAction="#rejestr" onMouseClicked="#walidacja" prefHeight="50.0" prefWidth="149.0" styleClass="zaloguj" stylesheets="@../../../css/login.css" text="Zarejestruj się" />
-                  <TextField fx:id="login" layoutX="87.0" layoutY="275.0" prefHeight="40.0" prefWidth="300.0" promptText="Nazwa urzytkownika" styleClass="poleTekstowe" stylesheets="@../../../css/login.css" AnchorPane.leftAnchor="86.60000000000002" AnchorPane.rightAnchor="50.799999999999955" />
-                  <Button fx:id="zaloguj" layoutX="163.0" layoutY="523.0" mnemonicParsing="false" onAction="#handleBottomClick" prefHeight="50.0" prefWidth="149.0" styleClass="zaloguj" stylesheets="@../../../css/login.css" text="Masz już konto?" />
-                  <Label fx:id="email_alert" layoutX="86.0" layoutY="224.0" text="Nie prawidłowy adres email !" textFill="RED" visible="false" />
-                  <Label fx:id="nazwa_alert" layoutX="86.0" layoutY="286.0" text="Nie prawidłowa nazwa urzytkowanika !" textFill="RED" visible="false" />
-                  <Label fx:id="haslo_alert" layoutX="86.0" layoutY="350.0" text="Nie prawidłowe hasło !" textFill="RED" visible="false" />
-                  <Label fx:id="zarejestrowano" layoutX="154.0" layoutY="429.0" text="Pomyślnie Zarejestrowano !" textFill="#02df10" visible="false">
+                  <TextField fx:id="id_pracownika" layoutX="77.0" layoutY="172.0" prefHeight="40.0" prefWidth="300.0" promptText="Id pracownika" styleClass="poleTekstowe" stylesheets="@../../../css/login.css" AnchorPane.leftAnchor="77.0" AnchorPane.rightAnchor="61.59999999999991" />
+                  <PasswordField fx:id="haslo" layoutX="79.0" layoutY="465.0" prefHeight="40.0" prefWidth="300.0" promptText="Hasło" styleClass="poleTekstowe" stylesheets="@../../../css/login.css" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="61.39999999999975" />
+                  <Button fx:id="zarejestruj" layoutX="35.0" layoutY="555.0" mnemonicParsing="false" onAction="#rejestr" onMouseClicked="#walidacja" prefHeight="50.0" prefWidth="149.0" styleClass="zaloguj" stylesheets="@../../../css/login.css" text="Zarejestruj się" />
+                  <TextField fx:id="imie" layoutX="77.0" layoutY="233.0" prefHeight="40.0" prefWidth="300.0" promptText="Imię" styleClass="poleTekstowe" stylesheets="@../../../css/login.css" AnchorPane.leftAnchor="77.0" AnchorPane.rightAnchor="61.59999999999991" />
+                  <Button fx:id="zaloguj" layoutX="252.0" layoutY="555.0" mnemonicParsing="false" onAction="#handleBottomClick" prefHeight="50.0" prefWidth="149.0" styleClass="zaloguj" stylesheets="@../../../css/login.css" text="Masz już konto?" />
+                  <Label fx:id="email_alert" layoutX="75.0" layoutY="389.0" text="Nie prawidłowy adres email !" textFill="RED" visible="false" />
+                  <Label fx:id="login_alert" layoutX="76.0" layoutY="447.0" text="Nie prawidłowy login!" textFill="RED" visible="false" />
+                  <Label fx:id="haslo_alert" layoutX="73.0" layoutY="505.0" text="Nie prawidłowe hasło !" textFill="RED" visible="false" />
+                  <Label fx:id="zarejestrowano" layoutX="149.0" layoutY="523.0" text="Pomyślnie Zarejestrowano !" textFill="#02df10" visible="false">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="haslo1" layoutX="89.0" layoutY="389.0" prefHeight="40.0" prefWidth="300.0" promptText="Powtórz hasło" styleClass="poleTekstowe" stylesheets="@../../../css/login.css" AnchorPane.leftAnchor="88.60000000000002" AnchorPane.rightAnchor="50.799999999999955" />
+                  <TextField fx:id="nazwisko" layoutX="76.0" layoutY="290.0" prefHeight="40.0" prefWidth="300.0" promptText="Nazwisko" styleClass="poleTekstowe" stylesheets="@../../../css/login.css" />
+                  <TextField fx:id="login" layoutX="76.0" layoutY="407.0" prefHeight="40.0" prefWidth="300.0" promptText="Login" styleClass="poleTekstowe" stylesheets="@../../../css/login.css" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="61.39999999999998" />
+                  <Label fx:id="idpracownika_alert" layoutX="78.0" layoutY="215.0" text="Nie prawidłowe id pracownika!" textFill="RED" visible="false" />
+                  <Label fx:id="imie_alert" layoutX="78.0" layoutY="273.0" text="Nie prawidłowe imię!" textFill="RED" visible="false" />
+                  <Label fx:id="nazwisko_alert" layoutX="78.0" layoutY="330.0" text="Nie prawidłowe nazwisko!" textFill="RED" visible="false" />
+                  <TextField fx:id="email" layoutX="76.0" layoutY="348.0" prefHeight="40.0" prefWidth="300.0" promptText="E-mail" styleClass="poleTekstowe" stylesheets="@../../../css/login.css" />
                </children>
             </AnchorPane>
          </children>
