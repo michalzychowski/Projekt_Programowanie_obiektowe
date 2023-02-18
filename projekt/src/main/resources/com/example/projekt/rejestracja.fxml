@@ -3,7 +3,6 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
@@ -13,6 +12,25 @@
    <children>
       <AnchorPane fx:id="main_form" prefHeight="200.0" prefWidth="200.0">
          <children>
+            <AnchorPane fx:id="second_form" prefHeight="625.0" prefWidth="437.0" styleClass="tloPrawe" stylesheets="@../../../css/login.css" visible="false">
+               <children>
+                  <Label layoutX="87.0" layoutY="47.0" text="imie" />
+                  <TextField fx:id="imie" layoutX="144.0" layoutY="43.0" />
+                  <Label layoutX="62.0" layoutY="80.0" text="nazwisko" />
+                  <TextField fx:id="nazwisko" layoutX="144.0" layoutY="76.0" />
+                  <Label layoutX="66.0" layoutY="128.0" text="telefon" />
+                  <TextField fx:id="telefon" layoutX="144.0" layoutY="124.0" />
+                  <Label layoutX="71.0" layoutY="187.0" text="email" />
+                  <TextField fx:id="email" layoutX="144.0" layoutY="183.0" />
+                  <Label layoutX="70.0" layoutY="247.0" text="PESEL" />
+                  <TextField fx:id="pesel" layoutX="144.0" layoutY="243.0" />
+                  <Label layoutX="72.0" layoutY="307.0" text="login" />
+                  <TextField fx:id="login" layoutX="144.0" layoutY="303.0" />
+                  <Label layoutX="86.0" layoutY="362.0" text="hasło" />
+                  <TextField fx:id="haslo" layoutX="144.0" layoutY="358.0" />
+                  <Button fx:id="zarejestuj" layoutX="150.0" layoutY="434.0" mnemonicParsing="false" onAction="#rejestr" text="zarejestruj sie" />
+               </children>
+            </AnchorPane>
             <AnchorPane fx:id="anchor" layoutX="-68.0" prefHeight="625.0" prefWidth="437.0" styleClass="tloLewe" stylesheets="@../../../css/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="437.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <FontAwesomeIcon glyphName="STETHOSCOPE" layoutX="72.0" layoutY="335.0" selectionFill="BLACK" size="15em" text="" textAlignment="CENTER" wrappingWidth="293.5000029504299" />
@@ -28,38 +46,16 @@
                   </Button>
                   <Button fx:id="zminimalizuj" layoutX="283.0" layoutY="11.0" mnemonicParsing="false" onAction="#zminimalizuj" styleClass="zminimalizuj" stylesheets="@../../../css/login.css" AnchorPane.rightAnchor="73.0" AnchorPane.topAnchor="2.0">
                      <graphic>
-                        <FontAwesomeIcon glyphName="MINUS" size="1.2em" textAlignment="CENTER" wrappingWidth="50.678571701049805" />
+                        <FontAwesomeIcon glyphName="MINUS" size="1.2em" text="" textAlignment="CENTER" wrappingWidth="50.678571701049805" />
                      </graphic>
                   </Button>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="380.0" layoutY="5.0" prefHeight="620.0" prefWidth="510.0" styleClass="tloPrawe" stylesheets="@../../../css/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="437.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="third_form" layoutX="380.0" layoutY="5.0" prefHeight="620.0" prefWidth="510.0" styleClass="tloPrawe" stylesheets="@../../../css/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="437.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <FontAwesomeIcon glyphName="USER_PLUS" layoutX="174.0" layoutY="109.0" size="10em" textAlignment="CENTER" wrappingWidth="121.5" />
-                  <Label alignment="CENTER" layoutX="151.0" layoutY="126.0" prefHeight="35.0" prefWidth="174.0" text="Zarejestruj się!">
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="id_pracownika" layoutX="77.0" layoutY="172.0" prefHeight="40.0" prefWidth="300.0" promptText="Id pracownika" styleClass="poleTekstowe" stylesheets="@../../../css/login.css" AnchorPane.leftAnchor="77.0" AnchorPane.rightAnchor="61.59999999999991" />
-                  <PasswordField fx:id="haslo" layoutX="79.0" layoutY="465.0" prefHeight="40.0" prefWidth="300.0" promptText="Hasło" styleClass="poleTekstowe" stylesheets="@../../../css/login.css" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="61.39999999999975" />
-                  <Button fx:id="zarejestruj" layoutX="35.0" layoutY="555.0" mnemonicParsing="false" onAction="#rejestr" onMouseClicked="#walidacja" prefHeight="50.0" prefWidth="149.0" styleClass="zaloguj" stylesheets="@../../../css/login.css" text="Zarejestruj się" />
-                  <TextField fx:id="imie" layoutX="77.0" layoutY="233.0" prefHeight="40.0" prefWidth="300.0" promptText="Imię" styleClass="poleTekstowe" stylesheets="@../../../css/login.css" AnchorPane.leftAnchor="77.0" AnchorPane.rightAnchor="61.59999999999991" />
-                  <Button fx:id="zaloguj" layoutX="252.0" layoutY="555.0" mnemonicParsing="false" onAction="#handleBottomClick" prefHeight="50.0" prefWidth="149.0" styleClass="zaloguj" stylesheets="@../../../css/login.css" text="Masz już konto?" />
-                  <Label fx:id="email_alert" layoutX="75.0" layoutY="389.0" text="Nie prawidłowy adres email !" textFill="RED" visible="false" />
-                  <Label fx:id="login_alert" layoutX="76.0" layoutY="447.0" text="Nie prawidłowy login!" textFill="RED" visible="false" />
-                  <Label fx:id="haslo_alert" layoutX="73.0" layoutY="505.0" text="Nie prawidłowe hasło !" textFill="RED" visible="false" />
-                  <Label fx:id="zarejestrowano" layoutX="149.0" layoutY="523.0" text="Pomyślnie Zarejestrowano !" textFill="#02df10" visible="false">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="nazwisko" layoutX="76.0" layoutY="290.0" prefHeight="40.0" prefWidth="300.0" promptText="Nazwisko" styleClass="poleTekstowe" stylesheets="@../../../css/login.css" />
-                  <TextField fx:id="login" layoutX="76.0" layoutY="407.0" prefHeight="40.0" prefWidth="300.0" promptText="Login" styleClass="poleTekstowe" stylesheets="@../../../css/login.css" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="61.39999999999998" />
-                  <Label fx:id="idpracownika_alert" layoutX="78.0" layoutY="215.0" text="Nie prawidłowe id pracownika!" textFill="RED" visible="false" />
-                  <Label fx:id="imie_alert" layoutX="78.0" layoutY="273.0" text="Nie prawidłowe imię!" textFill="RED" visible="false" />
-                  <Label fx:id="nazwisko_alert" layoutX="78.0" layoutY="330.0" text="Nie prawidłowe nazwisko!" textFill="RED" visible="false" />
-                  <TextField fx:id="email" layoutX="76.0" layoutY="348.0" prefHeight="40.0" prefWidth="300.0" promptText="E-mail" styleClass="poleTekstowe" stylesheets="@../../../css/login.css" />
+                  <Button fx:id="zarejestruj_lekarz" layoutX="109.0" layoutY="186.0" mnemonicParsing="false" onAction="#handleBottomClick" onMouseClicked="#walidacja" prefHeight="50.0" prefWidth="218.0" styleClass="zaloguj" stylesheets="@../../../css/login.css" text="Zarejestruj się jako lekarz" />
+                  <Button fx:id="zaloguj" layoutX="109.0" layoutY="492.0" mnemonicParsing="false" onAction="#handleBottomClick" prefHeight="50.0" prefWidth="218.0" styleClass="zaloguj" stylesheets="@../../../css/login.css" text="Przejdź do ekrano logowania" />
+                  <Button fx:id="zarejestruj_pielegniarka" layoutX="109.0" layoutY="293.0" mnemonicParsing="false" onAction="#handleBottomClick" onMouseClicked="#walidacja" prefHeight="50.0" prefWidth="218.0" styleClass="zaloguj" stylesheets="@../../../css/login.css" text="Zarejestruj się jako pielęgniarka" />
                </children>
             </AnchorPane>
          </children>

@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="549.0" prefWidth="788.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="main_form" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="549.0" prefWidth="788.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projekt.EkranLogowania">
    <children>
       <AnchorPane prefHeight="549.0" prefWidth="394.0" styleClass="tloLewe" stylesheets="@../../../css/login.css" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <FontAwesomeIcon glyphName="STETHOSCOPE" layoutX="102.0" layoutY="243.0" size="18em" wrappingWidth="190.4000244140625" />
+            <FontAwesomeIcon glyphName="STETHOSCOPE" layoutX="109.0" layoutY="243.0" size="18em" wrappingWidth="190.4000244140625" />
             <Label layoutX="20.0" layoutY="309.0" text="Przychodnia lecznicza ">
                <font>
                   <Font size="36.0" />
@@ -20,7 +20,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="373.0" prefHeight="200.0" prefWidth="394.0" styleClass="tloPrawe" stylesheets="@../../../css/login.css" AnchorPane.bottomAnchor="-0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="main_form" layoutX="373.0" prefHeight="200.0" prefWidth="394.0" styleClass="tloPrawe" stylesheets="@../../../css/login.css" visible="false" AnchorPane.bottomAnchor="-0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label layoutX="35.0" layoutY="238.0" text="Login:">
                <font>
@@ -32,7 +32,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="zaloguj" layoutX="145.0" layoutY="380.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="135.0" styleClass="zaloguj" stylesheets="@../../../css/login.css" text="Zaloguj się" />
+            <Button fx:id="zaloguj" layoutX="145.0" layoutY="380.0" mnemonicParsing="false" onAction="#handleBottomClick" prefHeight="35.0" prefWidth="135.0" styleClass="zaloguj" stylesheets="@../../../css/login.css" text="Zaloguj się" />
             <Label layoutX="119.0" layoutY="75.0" text="Logowanie">
                <font>
                   <Font size="36.0" />
@@ -40,19 +40,25 @@
             </Label>
             <TextField fx:id="login" layoutX="96.0" layoutY="239.0" prefHeight="26.0" prefWidth="219.0" />
             <PasswordField fx:id="haslo" layoutX="96.0" layoutY="294.0" prefHeight="26.0" prefWidth="219.0" />
-            <Button fx:id="zarejestruj" layoutX="145.0" layoutY="430.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="135.0" styleClass="zaloguj" stylesheets="@../../../css/login.css" text="Zarejestruj się" />
-            <Button layoutX="354.0" layoutY="14.0" mnemonicParsing="false" styleClass="zamknij" stylesheets="@../../../css/login.css">
+            <Label fx:id="loginalert" layoutX="96.0" layoutY="266.0" text="Nieprawidłowy login!" textFill="RED" visible="false" />
+            <Label fx:id="hasloalert" layoutX="96.0" layoutY="320.0" text="Nieprawidłowe hasło!" textFill="RED" visible="false" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="second_form" prefHeight="549.0" prefWidth="394.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="logowanie_pilegniarka" layoutX="88.0" layoutY="126.0" mnemonicParsing="false" onAction="#handleBottomClick" text="zaloguj sie jako pielegniarka" />
+            <Button fx:id="logowanie_lekarz" layoutX="88.0" layoutY="221.0" mnemonicParsing="false" onAction="#handleBottomClick" text="zaloguj sie jako lekarz" />
+            <Button fx:id="rejestracja" layoutX="88.0" layoutY="299.0" mnemonicParsing="false" onAction="#handleBottomClick" text="zarejestruj sie" />
+            <Button fx:id="zamknij" mnemonicParsing="false" onAction="#zamknij" prefHeight="24.0" prefWidth="67.0" styleClass="zamknij" stylesheets="@../../../css/login.css" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
                <graphic>
                   <FontAwesomeIcon glyphName="CLOSE" />
                </graphic>
             </Button>
-            <Button layoutX="328.0" layoutY="14.0" mnemonicParsing="false" styleClass="zminimalizuj" stylesheets="@../../../css/login.css">
+            <Button fx:id="zminimalizuj" mnemonicParsing="false" onAction="#zminimalizuj" prefHeight="24.0" prefWidth="67.0" styleClass="zminimalizuj" stylesheets="@../../../css/login.css" AnchorPane.rightAnchor="73.0" AnchorPane.topAnchor="2.0">
                <graphic>
                   <FontAwesomeIcon glyphName="MINUS" />
                </graphic>
             </Button>
-            <Label fx:id="loginalert" layoutX="96.0" layoutY="266.0" text="Nieprawidłowy login!" textFill="RED" visible="false" />
-            <Label fx:id="hasloalert" layoutX="96.0" layoutY="320.0" text="Nieprawidłowe hasło!" textFill="RED" visible="false" />
          </children>
       </AnchorPane>
    </children>
