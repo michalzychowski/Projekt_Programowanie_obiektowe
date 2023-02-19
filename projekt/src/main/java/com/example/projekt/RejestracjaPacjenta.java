@@ -12,11 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -26,6 +22,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import java.io.IOException;
 import java.net.URL;
@@ -156,6 +153,8 @@ public class RejestracjaPacjenta implements Initializable {
     @FXML
     private DatePicker data_wizyty;
 
+    @FXML
+    private Label komunikat;
 
 
     private List<Pacjenci> pacjenci;
@@ -182,7 +181,9 @@ public class RejestracjaPacjenta implements Initializable {
         Transaction transaction = session.beginTransaction();
 
         pacjenci = loadAllData(Pacjenci.class, session);
-        lekarze = loadAllData(Lekarze.class, session);
+
+        Query isLekarz = session.createQuery("from Lekarze where isLekarz=1");
+        lekarze = isLekarz.list();
 
         transaction.commit();
         session.close();
@@ -212,6 +213,8 @@ public class RejestracjaPacjenta implements Initializable {
         transaction.commit();
         session.close();
 
+        komunikat.setVisible(true);
+
         zaktualizuj();
     }
 
@@ -230,7 +233,7 @@ public class RejestracjaPacjenta implements Initializable {
 
     }
 
-    public void wybrane1(){
+    public void wybrane1() {
 
         Lekarze lekarzeDane = table1.getSelectionModel().getSelectedItem();
 
@@ -257,6 +260,7 @@ public class RejestracjaPacjenta implements Initializable {
         telefon_column.setCellValueFactory(new PropertyValueFactory<Pacjenci, String>("nr_telefonu"));
         email_column.setCellValueFactory(new PropertyValueFactory<Pacjenci, String>("email"));
 
+
         id_column1.setCellValueFactory(new PropertyValueFactory<Lekarze, Integer>("id_lekarza"));
         imie_column1.setCellValueFactory(new PropertyValueFactory<Lekarze, String>("imie"));
         nazwisko_column1.setCellValueFactory(new PropertyValueFactory<Lekarze, String>("nazwisko"));
@@ -271,9 +275,9 @@ public class RejestracjaPacjenta implements Initializable {
         }
         table.setItems(observableList);
 
-       for (Lekarze temp1 : lekarze){
-           observableList1.add(temp1);
-       }
+        for (Lekarze temp1 : lekarze) {
+            observableList1.add(temp1);
+        }
         table1.setItems(observableList1);
     }
 
@@ -284,21 +288,21 @@ public class RejestracjaPacjenta implements Initializable {
             observableList.add(temp);
         }
     }
+
     @FXML
     private void handleBottomClick(javafx.event.ActionEvent mouseEvent) throws IOException {
         if (mouseEvent.getSource() == dalej) {
             pacjent.setVisible(false);
             lekarz.setVisible(true);
-        }
-        else if(mouseEvent.getSource() == cofnij){
+        } else if (mouseEvent.getSource() == cofnij) {
             pacjent.setVisible(true);
             lekarz.setVisible(false);
-        }
-        else if(mouseEvent.getSource() == anuluj || mouseEvent.getSource() == anuluj1){
+        } else if (mouseEvent.getSource() == anuluj || mouseEvent.getSource() == anuluj1) {
             main_form.getScene().getWindow().hide();
             LoadStages("ekranPielegniarki.fxml");
         }
     }
+
     private void LoadStages(String fxml) {
         try {
             FXMLLoader x = new FXMLLoader(getClass().getResource(fxml));

@@ -31,9 +31,9 @@ public class Lekarze {
     private String haslo;
 
     @Column(name = "isLekarz")
-    private String isLekarz;
+    private int isLekarz;
 
-    public Lekarze(int id_lekarza, String imie, String nazwisko, String nr_telefonu, String email, String PESEL, String login, String haslo, String isLekarz) {
+    public Lekarze(int id_lekarza, String imie, String nazwisko, String nr_telefonu, String email, String PESEL, String login, String haslo, int isLekarz) {
         this.id_lekarza = id_lekarza;
         this.imie = imie;
         this.nazwisko = nazwisko;
@@ -112,11 +112,11 @@ public class Lekarze {
         this.haslo = haslo;
     }
 
-    public String getIsLekarz() {
+    public int getIsLekarz() {
         return isLekarz;
     }
 
-    public void setIsLekarz(String isLekarz) {
+    public void setIsLekarz(int isLekarz) {
         this.isLekarz = isLekarz;
     }
 
@@ -131,7 +131,7 @@ public class Lekarze {
                 ", PESEL='" + PESEL + '\'' +
                 ", login='" + login + '\'' +
                 ", haslo='" + haslo + '\'' +
-                ", isLekarz='" + isLekarz + '\'' +
+                ", isLekarz=" + isLekarz +
                 '}';
     }
 }

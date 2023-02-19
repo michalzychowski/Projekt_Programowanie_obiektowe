@@ -75,6 +75,10 @@ public class RejestracjaController {
     @FXML
     private AnchorPane third_form;
 
+    @FXML
+    private Button cofnij;
+
+
     private int id = 0;
 
     public void rejestr() {
@@ -97,7 +101,7 @@ public class RejestracjaController {
         x.setEmail(email.getText());
         x.setLogin(login.getText());
         x.setHaslo(haslo.getText());
-        x.setIsLekarz(String.valueOf(id));
+        x.setIsLekarz(id);
 
         session.persist(x);
         transaction.commit();
@@ -127,6 +131,11 @@ public class RejestracjaController {
         } else if (mouseEvent.getSource() == zarejestruj_pielegniarka) {
             third_form.setVisible(false);
             second_form.setVisible(true);
+            id = 0;
+        }
+        else if (mouseEvent.getSource() == cofnij) {
+            third_form.setVisible(true);
+            second_form.setVisible(false);
             id = 0;
         }
     }

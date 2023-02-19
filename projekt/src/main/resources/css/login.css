@@ -58,3 +58,39 @@
     -fx-background-color:linear-gradient(to bottom, #57da00, #57da00);
 }
 
+.cien{
+    -fx-effect:dropshadow(three-pass-box, rgba(0,0,0,0.4), 6,0,0,0)
+}
+
+.tlo{
+    -fx-background-color:#fff;
+    -fx-background-radius:8px;
+}
+
+.table-view{
+    -fx-background-color:transparent;
+    -fx-padding:0px;
+    -fx-border-color:linear-gradient(to bottom right, #57da00, #11640f);
+    -fx-border-width:1px;
+    -fx-border-radius:8px;
+}
+
+.table-view{
+    -fx-alignment: CENTER;
+}
+
+.table-view .column-header-background{
+    -fx-background-color:linear-gradient(to bottom right, #57da00, #11640f);
+    -fx-background-radius:8px 8px 0px 8px;
+    -fx-background-inset:0 0 0 0;
+}
+
+.table-view .column-header, .filter{
+    -fx-background-color:transparent;
+    -fx-size:40px;
+}
+
+.table-view .column-header .label{
+    -fx-text-fill:#fff;
+    -fx-font-family:"System";
+}

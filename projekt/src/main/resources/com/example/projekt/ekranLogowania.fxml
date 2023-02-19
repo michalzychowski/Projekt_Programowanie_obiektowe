@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -32,23 +33,55 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="zaloguj" layoutX="145.0" layoutY="380.0" mnemonicParsing="false" onAction="#handleBottomClick" prefHeight="35.0" prefWidth="135.0" styleClass="zaloguj" stylesheets="@../../../css/login.css" text="Zaloguj się" />
+            <Button fx:id="zaloguj" layoutX="145.0" layoutY="380.0" mnemonicParsing="false" onAction="#handleBottomClick" prefHeight="35.0" prefWidth="135.0" stylesheets="@../../../css/login.css" text="Zaloguj się">
+               <styleClass>
+                  <String fx:value="zaloguj" />
+                  <String fx:value="cien" />
+               </styleClass></Button>
             <Label layoutX="119.0" layoutY="75.0" text="Logowanie">
                <font>
                   <Font size="36.0" />
                </font>
             </Label>
-            <TextField fx:id="login" layoutX="96.0" layoutY="239.0" prefHeight="26.0" prefWidth="219.0" />
-            <PasswordField fx:id="haslo" layoutX="96.0" layoutY="294.0" prefHeight="26.0" prefWidth="219.0" />
+            <TextField fx:id="login" layoutX="96.0" layoutY="239.0" prefHeight="26.0" prefWidth="219.0" stylesheets="@../../../css/login.css">
+               <styleClass>
+                  <String fx:value="poleTekstowe" />
+                  <String fx:value="cien" />
+               </styleClass></TextField>
+            <PasswordField fx:id="haslo" layoutX="96.0" layoutY="294.0" prefHeight="26.0" prefWidth="219.0" stylesheets="@../../../css/login.css">
+               <styleClass>
+                  <String fx:value="poleTekstowe" />
+                  <String fx:value="cien" />
+               </styleClass></PasswordField>
             <Label fx:id="loginalert" layoutX="96.0" layoutY="266.0" text="Nieprawidłowy login!" textFill="RED" visible="false" />
             <Label fx:id="hasloalert" layoutX="96.0" layoutY="320.0" text="Nieprawidłowe hasło!" textFill="RED" visible="false" />
+            <Button fx:id="cofnij" layoutX="318.0" layoutY="509.0" mnemonicParsing="false" onAction="#handleBottomClick" styleClass="cien" stylesheets="@../../../css/login.css" text="cofnij">
+               <graphic>
+                  <FontAwesomeIcon glyphName="ARROW_LEFT" />
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="second_form" prefHeight="549.0" prefWidth="394.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane fx:id="second_form" prefHeight="549.0" prefWidth="394.0" styleClass="tlo" stylesheets="@../../../css/login.css" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button fx:id="logowanie_pilegniarka" layoutX="88.0" layoutY="126.0" mnemonicParsing="false" onAction="#handleBottomClick" text="zaloguj sie jako pielegniarka" />
-            <Button fx:id="logowanie_lekarz" layoutX="88.0" layoutY="221.0" mnemonicParsing="false" onAction="#handleBottomClick" text="zaloguj sie jako lekarz" />
-            <Button fx:id="rejestracja" layoutX="88.0" layoutY="299.0" mnemonicParsing="false" onAction="#handleBottomClick" text="zarejestruj sie" />
+            <Button fx:id="logowanie_pilegniarka" layoutX="100.0" layoutY="167.0" mnemonicParsing="false" onAction="#handleBottomClick" prefHeight="50.0" stylesheets="@../../../css/login.css" text="zaloguj się jako pielegniarka">
+               <styleClass>
+                  <String fx:value="zaloguj" />
+                  <String fx:value="cien" />
+               </styleClass>
+            </Button>
+            <Button fx:id="logowanie_lekarz" layoutX="100.0" layoutY="262.0" mnemonicParsing="false" onAction="#handleBottomClick" prefHeight="50.0" prefWidth="194.0" stylesheets="@../../../css/login.css" text="zaloguj się jako lekarz">
+               <styleClass>
+                  <String fx:value="zaloguj" />
+                  <String fx:value="cien" />
+               </styleClass>
+            </Button>
+            <Button fx:id="rejestracja" layoutX="100.0" layoutY="355.0" mnemonicParsing="false" onAction="#handleBottomClick" prefHeight="50.0" prefWidth="194.0" stylesheets="@../../../css/login.css" text="zarejestruj się">
+               <styleClass>
+                  <String fx:value="zaloguj" />
+                  <String fx:value="cien" />
+               </styleClass>
+            </Button>
             <Button fx:id="zamknij" mnemonicParsing="false" onAction="#zamknij" prefHeight="24.0" prefWidth="67.0" styleClass="zamknij" stylesheets="@../../../css/login.css" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
                <graphic>
                   <FontAwesomeIcon glyphName="CLOSE" />

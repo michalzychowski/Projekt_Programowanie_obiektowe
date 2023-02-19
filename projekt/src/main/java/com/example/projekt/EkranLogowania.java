@@ -1,5 +1,6 @@
 package com.example.projekt;
 
+import com.example.projekt.entity.Lekarze;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,8 +12,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import java.io.IOException;
+import java.util.List;
 
 public class EkranLogowania {
 
@@ -52,13 +60,19 @@ public class EkranLogowania {
     @FXML
     private Button zminimalizuj;
 
+    @FXML
+    private Button cofnij;
+
+
+    public static int idlekarza;
+
     private int id = 0;
 
-    public void zamknij(){
+    public void zamknij() {
         System.exit(0);
     }
 
-    public void zminimalizuj(){
+    public void zminimalizuj() {
         Stage stage = (Stage) main_form.getScene().getWindow();
         stage.setIconified(true);
     }
@@ -66,30 +80,76 @@ public class EkranLogowania {
 
     @FXML
     private void handleBottomClick(javafx.event.ActionEvent mouseEvent) throws IOException {
+
+        Configuration config = new Configuration().configure();
+        config.addAnnotatedClass(Lekarze.class);
+
+        StandardServiceRegistryBuilder builder =
+                new StandardServiceRegistryBuilder().applySettings(config.getProperties());
+        SessionFactory factory = config.buildSessionFactory(builder.build());
+
+        Session session = factory.openSession();
+        Transaction transaction = session.beginTransaction();
+
+        Query query = session.createQuery("from Lekarze where login=:login and haslo=:haslo");
+        query.setParameter("login", login.getText());
+        query.setParameter("haslo", haslo.getText());
+
+
+        List list = query.list();
+
         if (mouseEvent.getSource() == rejestracja) {
             main_form.getScene().getWindow().hide();
             LoadStages("rejestracja.fxml");
-        }
-        else if (mouseEvent.getSource() == zaloguj){
-            main_form.getScene().getWindow().hide();
-            if (id==1){
-                LoadStages("kartaPacjentow.fxml");
+        } else if (list.size() == 1) {
+            if (id == 1) {
+                Query isLekarz = session.createQuery("select id_lekarza from Lekarze where login=:login and haslo=:haslo and isLekarz=1");
+                isLekarz.setParameter("login", login.getText());
+                isLekarz.setParameter("haslo", haslo.getText());
+                List listA = isLekarz.list();
+                idlekarza = (int) listA.get(0);
+                System.out.println("id lekarza " + listA.get(0));
+
+                if (listA.size() == 1) {
+                    main_form.getScene().getWindow().hide();
+                    LoadStages("kartaPacjentow.fxml");
+                } else {
+                    loginalert.setText("logujesz sie na zle konto");
+                    hasloalert.setText("logujesz sie na zle konto");
+                    loginalert.setVisible(true);
+                    hasloalert.setVisible(true);
+                }
+            } else {
+                Query isLekarz = session.createQuery("from Lekarze where login=:login and haslo=:haslo and isLekarz=0");
+                isLekarz.setParameter("login", login.getText());
+                isLekarz.setParameter("haslo", haslo.getText());
+                List listA = isLekarz.list();
+
+                if (listA.size() == 1) {
+                    main_form.getScene().getWindow().hide();
+                    LoadStages("ekranPielegniarki.fxml");
+                } else {
+                    loginalert.setText("logujesz sie na zle konto");
+                    hasloalert.setText("logujesz sie na zle konto");
+                    loginalert.setVisible(true);
+                    hasloalert.setVisible(true);
+                }
             }
-            else {
-                LoadStages("ekranPielegniarki.fxml");
-            }
-        }
-        else if (mouseEvent.getSource() == logowanie_lekarz){
+        } else if (mouseEvent.getSource() == logowanie_lekarz) {
             second_form.setVisible(false);
             main_form.setVisible(true);
             id = 1;
-        }
-        else if (mouseEvent.getSource() == logowanie_pilegniarka){
+        } else if (mouseEvent.getSource() == logowanie_pilegniarka) {
             second_form.setVisible(false);
             main_form.setVisible(true);
             id = 0;
         }
+        else if (mouseEvent.getSource() == cofnij) {
+            second_form.setVisible(true);
+            main_form.setVisible(false);
+        }
     }
+
     private void LoadStages(String fxml) {
         try {
             FXMLLoader x = new FXMLLoader(getClass().getResource(fxml));
@@ -103,4 +163,6 @@ public class EkranLogowania {
         }
     }
 }
+
+
 

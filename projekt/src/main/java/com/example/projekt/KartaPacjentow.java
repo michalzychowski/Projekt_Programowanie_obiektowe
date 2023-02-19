@@ -23,6 +23,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import java.io.IOException;
 import java.net.URL;
@@ -95,6 +96,9 @@ public class KartaPacjentow implements Initializable {
     private TextField id;
 
     @FXML
+    private TextField id1;
+
+    @FXML
     private TextField leki;
 
     @FXML
@@ -122,7 +126,11 @@ public class KartaPacjentow implements Initializable {
         Session session = factory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        pacjenci = loadAllData(Wizyta.class, session);
+        EkranLogowania ekranLogowania = new EkranLogowania();
+        Query isLekarz = session.createQuery("from Wizyta where id_lekarza=:id_lekarza");
+        isLekarz.setParameter("id_lekarza",ekranLogowania.idlekarza );
+
+        pacjenci = isLekarz.list();
 
         transaction.commit();
         session.close();
@@ -142,6 +150,7 @@ public class KartaPacjentow implements Initializable {
         Wizyta p = new Wizyta();
 
         p.setId_wizyta(Integer.parseInt(id.getText()));
+        p.setId_lekarza(Integer.parseInt(id1.getText()));
         p.setImie(imie.getText());
         p.setNazwisko(nazwisko.getText());
         p.setPESEL(pesel.getText());
@@ -163,6 +172,7 @@ public class KartaPacjentow implements Initializable {
         Wizyta wizytaDane = pacjenci_tabela.getSelectionModel().getSelectedItem();
 
         id.setText(String.valueOf(wizytaDane.getId_wizyta()));
+        id1.setText(String.valueOf(wizytaDane.getId_lekarza()));
         imie.setText(String.valueOf(wizytaDane.getImie()));
         nazwisko.setText(String.valueOf(wizytaDane.getNazwisko()));
         pesel.setText(String.valueOf(wizytaDane.getPESEL()));
