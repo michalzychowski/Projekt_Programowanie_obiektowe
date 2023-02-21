@@ -10,11 +10,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -87,8 +85,6 @@ public class KartaPacjentow implements Initializable {
     @FXML
     private Button wyloguj;
 
-    @FXML
-    private Button wystaw_recepte;
 
     @FXML
     private Button wyczysc;
@@ -103,6 +99,16 @@ public class KartaPacjentow implements Initializable {
 
     @FXML
     private TableColumn<Wizyta, String> leki_column;
+
+
+    @FXML
+    private Label alert_leki;
+
+    @FXML
+    private Label alert_objawy;
+
+    @FXML
+    private Label alert_rozpoznanie;
 
 
     private List<Wizyta> pacjenci;
@@ -128,7 +134,7 @@ public class KartaPacjentow implements Initializable {
 
         EkranLogowania ekranLogowania = new EkranLogowania();
         Query isLekarz = session.createQuery("from Wizyta where id_lekarza=:id_lekarza");
-        isLekarz.setParameter("id_lekarza",ekranLogowania.idlekarza );
+        isLekarz.setParameter("id_lekarza", ekranLogowania.idlekarza);
 
         pacjenci = isLekarz.list();
 
@@ -161,9 +167,11 @@ public class KartaPacjentow implements Initializable {
         p.setLeki(leki.getText());
 
 
-        session.update(p);
-        transaction.commit();
-        session.close();
+        if (isRozpoznanieOk(rozpoznanie.getText()) && isObjawyOk(objawy.getText()) && isLekiOk(leki.getText())) {
+            session.update(p);
+            transaction.commit();
+            session.close();
+        }
 
         zaktualizuj();
     }
@@ -233,6 +241,7 @@ public class KartaPacjentow implements Initializable {
         }
 
     }
+
     private void LoadStages(String fxml) {
         try {
             FXMLLoader x = new FXMLLoader(getClass().getResource(fxml));
@@ -244,5 +253,40 @@ public class KartaPacjentow implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+
+    private boolean isRozpoznanieOk(String s) {
+        return s.matches("\\w{2,100}[A-Za-z].*");
+    }
+
+    private boolean isObjawyOk(String s) {
+        return s.matches("\\w{2,200}[A-Za-z].*");
+    }
+
+    private boolean isLekiOk(String s) {
+        return s.matches("\\w{2,100}[A-Za-z].*");
+    }
+
+    @FXML
+    void walidacja(MouseEvent event) {
+        if (!isRozpoznanieOk(rozpoznanie.getText()) || rozpoznanie.getText().equals("")) {
+            alert_rozpoznanie.setVisible(true);
+        } else if (isRozpoznanieOk(rozpoznanie.getText())) {
+            alert_rozpoznanie.setVisible(false);
+        }
+
+        if (!isObjawyOk(objawy.getText()) || objawy.getText().equals("")) {
+            alert_objawy.setVisible(true);
+        } else if (isObjawyOk(imie.getText())) {
+            alert_objawy.setVisible(false);
+        }
+
+        if (!isLekiOk(leki.getText()) || leki.getText().equals("")) {
+            alert_leki.setVisible(true);
+        } else if (isLekiOk(leki.getText())) {
+            alert_leki.setVisible(false);
+        }
+
     }
 }

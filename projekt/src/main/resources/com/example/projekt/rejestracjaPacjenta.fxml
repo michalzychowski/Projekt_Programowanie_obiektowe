@@ -62,14 +62,14 @@
             </Label>
             <TableView fx:id="table" layoutX="32.0" layoutY="107.0" onMouseClicked="#wybrane" prefHeight="246.0" prefWidth="838.0">
               <columns>
-                <TableColumn fx:id="id_column" prefWidth="75.0" text="id" />
-                <TableColumn fx:id="imie_column" prefWidth="82.39999389648438" text="imie" />
-                  <TableColumn fx:id="nazwisko_column" prefWidth="84.00003051757812" text="nazwisko" />
+                <TableColumn fx:id="id_column" prefWidth="75.0" text="Id" />
+                <TableColumn fx:id="imie_column" prefWidth="82.39999389648438" text="Imię" />
+                  <TableColumn fx:id="nazwisko_column" prefWidth="84.00003051757812" text="Nazwisko" />
                   <TableColumn fx:id="pesel_column" prefWidth="97.5999755859375" text="PSESEL" />
-                  <TableColumn fx:id="data_column" prefWidth="98.4000244140625" text="data" />
-                  <TableColumn fx:id="adres_column" prefWidth="121.60003662109375" text="adres" />
-                  <TableColumn fx:id="telefon_column" prefWidth="130.39996337890625" text="telefon" />
-                  <TableColumn fx:id="email_column" prefWidth="152.800048828125" text="email" />
+                  <TableColumn fx:id="data_column" prefWidth="98.4000244140625" text="Data" />
+                  <TableColumn fx:id="adres_column" prefWidth="121.60003662109375" text="Adres" />
+                  <TableColumn fx:id="telefon_column" prefWidth="130.39996337890625" text="Nr telefonu" />
+                  <TableColumn fx:id="email_column" prefWidth="152.800048828125" text="E-mail" />
               </columns>
             </TableView>
             <Label layoutX="100.0" layoutY="545.0" text="PESEL:" AnchorPane.leftAnchor="100.0">
@@ -102,7 +102,7 @@
                   <String fx:value="cien" />
                   <String fx:value="poleTekstowe" />
                </styleClass></TextField>
-            <Button fx:id="dalej" layoutX="733.0" layoutY="669.0" mnemonicParsing="false" onAction="#handleBottomClick" prefHeight="26.0" prefWidth="62.0" stylesheets="@../../../css/login.css" text="dalej">
+            <Button fx:id="dalej" layoutX="733.0" layoutY="669.0" mnemonicParsing="false" onAction="#handleBottomClick" prefHeight="26.0" prefWidth="62.0" stylesheets="@../../../css/login.css" text="Dalej">
                <styleClass>
                   <String fx:value="cien" />
                   <String fx:value="zminimalizuj" />
@@ -171,12 +171,12 @@
             </Label>
             <TableView fx:id="table1" layoutX="32.0" layoutY="107.0" onMouseClicked="#wybrane1" prefHeight="246.0" prefWidth="838.0">
                <columns>
-                  <TableColumn fx:id="id_column1" prefWidth="75.0" text="id" />
-                  <TableColumn fx:id="imie_column1" prefWidth="100.79998779296875" text="imie" />
-                  <TableColumn fx:id="nazwisko_column1" prefWidth="113.60011291503906" text="nazwisko" />
+                  <TableColumn fx:id="id_column1" prefWidth="75.0" text="Id" />
+                  <TableColumn fx:id="imie_column1" prefWidth="100.79998779296875" text="Imie" />
+                  <TableColumn fx:id="nazwisko_column1" prefWidth="113.60011291503906" text="Nazwisko" />
                   <TableColumn fx:id="pesel_column1" prefWidth="151.20001220703125" text="PSESEL" />
-                  <TableColumn fx:id="telefon_column1" prefWidth="188.0" text="telefon" />
-                  <TableColumn fx:id="email_column1" prefWidth="212.0" text="email" />
+                  <TableColumn fx:id="telefon_column1" prefWidth="188.0" text="Nr telefonu" />
+                  <TableColumn fx:id="email_column1" prefWidth="212.0" text="E-mail" />
                </columns>
             </TableView>
             <Label layoutX="165.8" layoutY="529.0" text="PESEL:" AnchorPane.rightAnchor="680.0">
@@ -194,7 +194,7 @@
                   <String fx:value="cien" />
                   <String fx:value="poleTekstowe" />
                </styleClass></TextField>
-            <Button fx:id="cofnij" layoutX="713.0" layoutY="669.0" mnemonicParsing="false" onAction="#handleBottomClick" prefHeight="26.0" prefWidth="62.0" stylesheets="@../../../css/login.css" text="cofnij">
+            <Button fx:id="cofnij" layoutX="713.0" layoutY="669.0" mnemonicParsing="false" onAction="#handleBottomClick" prefHeight="26.0" prefWidth="62.0" stylesheets="@../../../css/login.css" text="Cofnij">
                <graphic>
                   <FontAwesomeIcon glyphName="ARROW_LEFT" />
                </graphic>
@@ -217,7 +217,7 @@
                   <String fx:value="cien" />
                   <String fx:value="poleTekstowe" />
                </styleClass></TextField>
-            <Button fx:id="zapisz" layoutX="591.0" layoutY="461.0" mnemonicParsing="false" onAction="#setData" prefHeight="46.0" prefWidth="150.0" stylesheets="@../../../css/login.css" text="zapisz">
+            <Button fx:id="zapisz" layoutX="591.0" layoutY="461.0" mnemonicParsing="false" onAction="#setData" onMouseClicked="#walidacja" prefHeight="46.0" prefWidth="150.0" stylesheets="@../../../css/login.css" text="Zapisz">
                <styleClass>
                   <String fx:value="cien" />
                   <String fx:value="zaloguj" />
@@ -227,12 +227,16 @@
                   <String fx:value="cien" />
                   <String fx:value="poleTekstowe" />
                </styleClass></DatePicker>
-            <Label layoutX="145.0" layoutY="650.0" text="data wizyty" AnchorPane.rightAnchor="680.0" />
+            <Label layoutX="145.0" layoutY="650.0" text="Data wizyty" AnchorPane.rightAnchor="680.0">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
             <Label fx:id="komunikat" layoutX="540.0" layoutY="567.0" text="Pomyślnie zarejestrowano wizytę !" textFill="#008c07" visible="false">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
+            <Label fx:id="alert_data" layoutX="270.0" layoutY="674.0" text="Pole daty musi być uzupełnione!" textFill="RED" visible="false" />
          </children>
       </AnchorPane>
    </children>

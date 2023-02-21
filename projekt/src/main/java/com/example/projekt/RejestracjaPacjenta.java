@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -144,8 +145,6 @@ public class RejestracjaPacjenta implements Initializable {
     @FXML
     private TableColumn<Lekarze, String> telefon_column1;
 
-    @FXML
-    private Button zapisz;
 
     @FXML
     private AnchorPane main_form;
@@ -155,6 +154,9 @@ public class RejestracjaPacjenta implements Initializable {
 
     @FXML
     private Label komunikat;
+
+    @FXML
+    private Label alert_data;
 
 
     private List<Pacjenci> pacjenci;
@@ -209,11 +211,13 @@ public class RejestracjaPacjenta implements Initializable {
         w.setAdres(adres.getText());
         w.setData(data_wizyty.getValue());
 
-        session.persist(w);
-        transaction.commit();
-        session.close();
+        if (data_wizyty.getValue() != null) {
+            session.persist(w);
+            transaction.commit();
+            session.close();
 
-        komunikat.setVisible(true);
+            komunikat.setVisible(true);
+        }
 
         zaktualizuj();
     }
@@ -313,6 +317,15 @@ public class RejestracjaPacjenta implements Initializable {
             stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void walidacja(MouseEvent event) {
+        if (data_wizyty.getValue() == null) {
+            alert_data.setVisible(true);
+        } else if (data_wizyty.getValue() != null) {
+            alert_data.setVisible(false);
         }
     }
 }

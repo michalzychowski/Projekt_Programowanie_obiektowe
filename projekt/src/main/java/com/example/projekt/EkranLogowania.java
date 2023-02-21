@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -40,7 +41,7 @@ public class EkranLogowania {
     private Button logowanie_lekarz;
 
     @FXML
-    private Button logowanie_pilegniarka;
+    private Button logowanie_pielegniarka;
 
     @FXML
     private AnchorPane main_form;
@@ -51,8 +52,6 @@ public class EkranLogowania {
     @FXML
     private AnchorPane second_form;
 
-    @FXML
-    private Button zaloguj;
 
     @FXML
     private Button zamknij;
@@ -135,18 +134,21 @@ public class EkranLogowania {
                     hasloalert.setVisible(true);
                 }
             }
+
         } else if (mouseEvent.getSource() == logowanie_lekarz) {
             second_form.setVisible(false);
             main_form.setVisible(true);
             id = 1;
-        } else if (mouseEvent.getSource() == logowanie_pilegniarka) {
+        } else if (mouseEvent.getSource() == logowanie_pielegniarka) {
             second_form.setVisible(false);
             main_form.setVisible(true);
             id = 0;
-        }
-        else if (mouseEvent.getSource() == cofnij) {
+        } else if (mouseEvent.getSource() == cofnij) {
             second_form.setVisible(true);
             main_form.setVisible(false);
+        } else {
+            loginalert.setVisible(true);
+            hasloalert.setVisible(true);
         }
     }
 

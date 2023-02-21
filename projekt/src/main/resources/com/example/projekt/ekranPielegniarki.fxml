@@ -24,17 +24,17 @@
             <TableColumn fx:id="email_column" prefWidth="115.5" text="E-mail" />
         </columns>
       </TableView>
-      <Button fx:id="dodaj" layoutX="86.0" layoutY="344.0" mnemonicParsing="false" onAction="#setData" stylesheets="@../../../css/login.css" text="Dodaj pacjenta">
+      <Button fx:id="dodaj" layoutX="86.0" layoutY="344.0" mnemonicParsing="false" onAction="#setData" onMouseClicked="#walidacja" stylesheets="@../../../css/login.css" text="Dodaj pacjenta">
          <styleClass>
             <String fx:value="cien" />
             <String fx:value="zaloguj" />
          </styleClass></Button>
-      <Button fx:id="edytuj" layoutX="86.0" layoutY="393.0" mnemonicParsing="false" onAction="#editData" prefHeight="26.0" prefWidth="113.0" stylesheets="@../../../css/login.css" text="Edytuj dane">
+      <Button fx:id="edytuj" layoutX="86.0" layoutY="393.0" mnemonicParsing="false" onAction="#editData" onMouseClicked="#walidacja" prefHeight="26.0" prefWidth="113.0" stylesheets="@../../../css/login.css" text="Edytuj dane">
          <styleClass>
             <String fx:value="cien" />
             <String fx:value="zaloguj" />
          </styleClass></Button>
-      <Button fx:id="usun" layoutX="86.0" layoutY="444.0" mnemonicParsing="false" onAction="#deleteData" prefHeight="26.0" prefWidth="113.0" stylesheets="@../../../css/login.css" text="Usuń pacjenta">
+      <Button fx:id="usun" layoutX="86.0" layoutY="444.0" mnemonicParsing="false" onAction="#deleteData" onMouseClicked="#walidacja" prefHeight="26.0" prefWidth="113.0" stylesheets="@../../../css/login.css" text="Usuń pacjenta">
          <styleClass>
             <String fx:value="cien" />
             <String fx:value="zaloguj" />
@@ -49,77 +49,77 @@
             <String fx:value="cien" />
             <String fx:value="zaloguj" />
          </styleClass></Button>
-      <Label layoutX="398.0" layoutY="354.0" text="Imię:">
+      <Label layoutX="398.0" layoutY="335.0" text="Imię:">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="398.0" layoutY="401.0" text="Nazwisko:">
+      <Label layoutX="398.0" layoutY="388.0" text="Nazwisko:">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="398.0" layoutY="450.0" text="PESEL:">
+      <Label layoutX="398.0" layoutY="440.0" text="PESEL:">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="398.0" layoutY="498.0" text="Data urodzenia:">
+      <Label layoutX="398.0" layoutY="495.0" text="Data urodzenia:">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="398.0" layoutY="544.0" text="Adres:">
+      <Label layoutX="398.0" layoutY="543.0" text="Adres:">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="396.0" layoutY="589.0" text="Numer telefonu:">
+      <Label layoutX="396.0" layoutY="591.0" text="Numer telefonu:">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="398.0" layoutY="631.0" text="E-mail:">
+      <Label layoutX="398.0" layoutY="636.0" text="E-mail:">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="538.0" layoutY="295.0" text=" Rejestracja pacjenta">
+      <Label layoutX="538.0" layoutY="293.0" text=" Rejestracja pacjenta">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="imie" layoutX="551.0" layoutY="354.0" prefHeight="29.0" prefWidth="190.0" stylesheets="@../../../css/login.css">
+      <TextField fx:id="imie" layoutX="551.0" layoutY="334.0" prefHeight="29.0" prefWidth="190.0" stylesheets="@../../../css/login.css">
          <styleClass>
             <String fx:value="cien" />
             <String fx:value="poleTekstowe" />
          </styleClass></TextField>
-      <TextField fx:id="nazwisko" layoutX="552.0" layoutY="400.0" prefHeight="30.0" prefWidth="190.0" stylesheets="@../../../css/login.css">
+      <TextField fx:id="nazwisko" layoutX="552.0" layoutY="387.0" prefHeight="30.0" prefWidth="190.0" stylesheets="@../../../css/login.css">
          <styleClass>
             <String fx:value="cien" />
             <String fx:value="poleTekstowe" />
          </styleClass></TextField>
-      <TextField fx:id="pesel" layoutX="552.0" layoutY="448.0" prefHeight="30.0" prefWidth="190.0" stylesheets="@../../../css/login.css">
+      <TextField fx:id="pesel" layoutX="552.0" layoutY="438.0" prefHeight="30.0" prefWidth="190.0" stylesheets="@../../../css/login.css">
          <styleClass>
             <String fx:value="cien" />
             <String fx:value="poleTekstowe" />
          </styleClass></TextField>
-      <TextField fx:id="adres" layoutX="553.0" layoutY="540.0" prefHeight="29.0" prefWidth="190.0" stylesheets="@../../../css/login.css">
+      <TextField fx:id="adres" layoutX="553.0" layoutY="541.0" prefHeight="29.0" prefWidth="190.0" stylesheets="@../../../css/login.css">
          <styleClass>
             <String fx:value="cien" />
             <String fx:value="poleTekstowe" />
          </styleClass></TextField>
-      <TextField fx:id="nr_tel" layoutX="554.0" layoutY="587.0" prefHeight="29.0" prefWidth="190.0" stylesheets="@../../../css/login.css">
+      <TextField fx:id="nr_tel" layoutX="554.0" layoutY="589.0" prefHeight="29.0" prefWidth="190.0" stylesheets="@../../../css/login.css">
          <styleClass>
             <String fx:value="cien" />
             <String fx:value="poleTekstowe" />
          </styleClass></TextField>
-      <TextField fx:id="email" layoutX="555.0" layoutY="631.0" prefHeight="29.0" prefWidth="190.0" stylesheets="@../../../css/login.css">
+      <TextField fx:id="email" layoutX="555.0" layoutY="636.0" prefHeight="29.0" prefWidth="190.0" stylesheets="@../../../css/login.css">
          <styleClass>
             <String fx:value="cien" />
             <String fx:value="poleTekstowe" />
          </styleClass></TextField>
-      <DatePicker fx:id="data_ur" layoutX="551.0" layoutY="494.0" prefHeight="27.0" prefWidth="190.0" stylesheets="@../../../css/login.css">
+      <DatePicker fx:id="data_ur" layoutX="551.0" layoutY="491.0" prefHeight="27.0" prefWidth="190.0" stylesheets="@../../../css/login.css">
          <styleClass>
             <String fx:value="cien" />
             <String fx:value="poleTekstowe" />
@@ -130,5 +130,12 @@
             <String fx:value="zaloguj" />
          </styleClass></Button>
       <TextField fx:id="dd" layoutX="797.0" layoutY="343.0" prefHeight="26.0" prefWidth="76.0" visible="false" />
+      <Label fx:id="alert_data_ur" layoutX="555.0" layoutY="522.0" text="Niprawidłowa data urodzenia!" textFill="RED" visible="false" />
+      <Label fx:id="alert_imie" layoutX="555.0" layoutY="368.0" text="Niprawidłowe imię!" textFill="RED" visible="false" />
+      <Label fx:id="alert_nazwisko" layoutX="555.0" layoutY="418.0" text="Niprawidłowe nazwisko!" textFill="RED" visible="false" />
+      <Label fx:id="alert_PESEL" layoutX="555.0" layoutY="472.0" text="Niprawidłowy PESEL!" textFill="RED" visible="false" />
+      <Label fx:id="alert_adres" layoutX="555.0" layoutY="569.0" text="Niprawidłowy adres!" textFill="RED" visible="false" />
+      <Label fx:id="alert_tel" layoutX="555.0" layoutY="617.0" text="Niprawidłowy nr tlelefonu!" textFill="RED" visible="false" />
+      <Label fx:id="alert_email" layoutX="555.0" layoutY="666.0" text="Niprawidłowy E-mail!" textFill="RED" visible="false" />
    </children>
 </AnchorPane>

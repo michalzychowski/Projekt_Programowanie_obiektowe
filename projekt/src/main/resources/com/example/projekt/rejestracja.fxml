@@ -4,6 +4,7 @@
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
@@ -15,79 +16,115 @@
          <children>
             <AnchorPane fx:id="second_form" prefHeight="625.0" prefWidth="437.0" styleClass="tloPrawe" stylesheets="@../../../css/login.css" visible="false">
                <children>
-                  <Label layoutX="95.0" layoutY="92.0" text="imie" AnchorPane.rightAnchor="320.0">
+                  <Label layoutX="80.80000000000015" layoutY="44.0" text="Imię:" AnchorPane.rightAnchor="320.0">
                      <font>
                         <Font size="16.0" />
                      </font></Label>
-                  <TextField fx:id="imie" layoutX="134.0" layoutY="88.0" prefWidth="200.0" stylesheets="@../../../css/login.css" AnchorPane.rightAnchor="100.0">
+                  <TextField fx:id="imie" layoutX="135.20000000000016" layoutY="40.0" prefWidth="200.0" stylesheets="@../../../css/login.css" AnchorPane.rightAnchor="100.0">
                      <styleClass>
                         <String fx:value="cien" />
                         <String fx:value="poleTekstowe" />
                      </styleClass></TextField>
-                  <Label layoutX="66.0" layoutY="141.0" text="nazwisko" AnchorPane.rightAnchor="320.0">
+                  <Label layoutX="32.800000000000836" layoutY="105.0" text="Nazwisko:" AnchorPane.rightAnchor="320.0">
                      <font>
                         <Font size="16.0" />
                      </font></Label>
-                  <TextField fx:id="nazwisko" layoutX="137.0" layoutY="137.0" prefWidth="200.0" stylesheets="@../../../css/login.css" AnchorPane.rightAnchor="100.0">
+                  <TextField fx:id="nazwisko" layoutX="123.20000000000084" layoutY="101.0" prefWidth="200.0" stylesheets="@../../../css/login.css" AnchorPane.rightAnchor="100.0">
                      <styleClass>
                         <String fx:value="cien" />
                         <String fx:value="poleTekstowe" />
                      </styleClass></TextField>
-                  <Label layoutX="81.0" layoutY="187.0" text="telefon" AnchorPane.rightAnchor="320.0">
+                  <Label layoutX="26.400000000000432" layoutY="169.0" text="Nr telefonu:" AnchorPane.rightAnchor="320.0">
                      <font>
                         <Font size="16.0" />
                      </font></Label>
-                  <TextField fx:id="telefon" layoutX="137.0" layoutY="183.0" prefWidth="200.0" stylesheets="@../../../css/login.css" AnchorPane.rightAnchor="100.0">
+                  <TextField fx:id="telefon" layoutX="130.40000000000043" layoutY="165.0" prefWidth="200.0" stylesheets="@../../../css/login.css" AnchorPane.rightAnchor="100.0">
                      <styleClass>
                         <String fx:value="cien" />
                         <String fx:value="poleTekstowe" />
                      </styleClass></TextField>
-                  <Label layoutX="101.0" layoutY="237.0" text="email" AnchorPane.rightAnchor="320.0">
+                  <Label layoutX="64.8000000000003" layoutY="225.0" text="E-mail:" AnchorPane.rightAnchor="320.0">
                      <font>
                         <Font size="16.0" />
                      </font></Label>
-                  <TextField fx:id="email" layoutX="156.0" layoutY="233.0" prefWidth="200.0" stylesheets="@../../../css/login.css" AnchorPane.rightAnchor="100.0">
+                  <TextField fx:id="email" layoutX="132.8000000000003" layoutY="221.0" prefWidth="200.0" stylesheets="@../../../css/login.css" AnchorPane.rightAnchor="100.0">
                      <styleClass>
                         <String fx:value="cien" />
                         <String fx:value="poleTekstowe" />
                      </styleClass></TextField>
-                  <Label layoutX="91.0" layoutY="285.0" text="PESEL" AnchorPane.rightAnchor="320.0">
+                  <Label layoutX="68.80000000000025" layoutY="275.0" text="PESEL:" AnchorPane.rightAnchor="320.0">
                      <font>
                         <Font size="16.0" />
                      </font></Label>
-                  <TextField fx:id="pesel" layoutX="140.0" layoutY="281.0" prefWidth="200.0" stylesheets="@../../../css/login.css" AnchorPane.rightAnchor="100.0">
+                  <TextField fx:id="pesel" layoutX="133.60000000000025" layoutY="271.0" prefWidth="200.0" stylesheets="@../../../css/login.css" AnchorPane.rightAnchor="100.0">
                      <styleClass>
                         <String fx:value="cien" />
                         <String fx:value="poleTekstowe" />
                      </styleClass></TextField>
-                  <Label layoutX="97.0" layoutY="330.0" text="login" AnchorPane.rightAnchor="320.0">
+                  <Label layoutX="71.2000000000002" layoutY="338.0" text="Login:" AnchorPane.rightAnchor="320.0">
                      <font>
                         <Font size="16.0" />
                      </font></Label>
-                  <TextField fx:id="login" layoutX="140.0" layoutY="326.0" prefWidth="200.0" stylesheets="@../../../css/login.css" AnchorPane.rightAnchor="100.0">
+                  <TextField fx:id="login" layoutX="134.4000000000002" layoutY="334.0" prefWidth="200.0" stylesheets="@../../../css/login.css" AnchorPane.rightAnchor="100.0">
                      <styleClass>
                         <String fx:value="cien" />
                         <String fx:value="poleTekstowe" />
                      </styleClass></TextField>
-                  <Label layoutX="96.0" layoutY="379.0" text="hasło" AnchorPane.rightAnchor="320.0">
+                  <Label layoutX="66.00000000000045" layoutY="398.0" text="Hasło:" AnchorPane.rightAnchor="320.0">
                      <font>
                         <Font size="16.0" />
                      </font></Label>
-                  <TextField fx:id="haslo" layoutX="142.0" layoutY="375.0" prefWidth="200.0" stylesheets="@../../../css/login.css" AnchorPane.rightAnchor="100.0">
-                     <styleClass>
-                        <String fx:value="cien" />
-                        <String fx:value="poleTekstowe" />
-                     </styleClass></TextField>
-                  <Button fx:id="zarejestuj" layoutX="146.0" layoutY="467.0" mnemonicParsing="false" onAction="#rejestr" prefHeight="33.0" prefWidth="168.0" stylesheets="@../../../css/login.css" text="zarejestruj sie">
+                  <Button fx:id="zarejestuj" layoutX="146.0" layoutY="503.0" mnemonicParsing="false" onAction="#rejestr" onMouseClicked="#walidacja" prefHeight="33.0" prefWidth="168.0" stylesheets="@../../../css/login.css" text="Zarejestruj się">
                      <styleClass>
                         <String fx:value="zaloguj" />
                         <String fx:value="cien" />
                      </styleClass></Button>
-                  <Button fx:id="cofnij" layoutX="14.0" layoutY="587.0" mnemonicParsing="false" onAction="#handleBottomClick" prefHeight="26.0" prefWidth="67.0" styleClass="cien" stylesheets="@../../../css/login.css" text="cofnij">
+                  <Button fx:id="cofnij" layoutX="14.0" layoutY="587.0" mnemonicParsing="false" onAction="#handleBottomClick" onMouseClicked="#wyczysc" prefHeight="26.0" prefWidth="67.0" styleClass="cien" stylesheets="@../../../css/login.css" text="Cofnij">
                      <graphic>
                         <FontAwesomeIcon glyphName="ARROW_LEFT" />
                      </graphic>
                   </Button>
+                  <Label fx:id="alert_imie" layoutX="137.0" layoutY="70.0" text="Nieprawidłowe imię!" textFill="RED" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="alert_nazwisko" layoutX="137.0" layoutY="131.0" text="Nieprawidłowe nazwisko!" textFill="RED" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="alert_tel" layoutX="137.0" layoutY="195.0" text="Nieprawidłowy nr telefonu!" textFill="RED" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="alert_email" layoutX="137.0" layoutY="251.0" text="Nieprawidłowy E-mail!" textFill="RED" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="alert_pesel" layoutX="137.0" layoutY="304.0" text="Nieprawidłowy PESEL!" textFill="RED" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="alert_login" layoutX="137.0" layoutY="364.0" text="Nieprawidłowy login!" textFill="RED" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="alert_haslo" layoutX="137.0" layoutY="423.0" text="Nieprawidłowe hasło!" textFill="RED" visible="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="haslo" layoutX="132.0" layoutY="398.0" prefHeight="29.0" prefWidth="200.0" stylesheets="@../../../css/login.css" AnchorPane.rightAnchor="100.0">
+                     <styleClass>
+                        <String fx:value="poleTekstowe" />
+                        <String fx:value="cien" />
+                     </styleClass>
+                  </PasswordField>
                </children>
             </AnchorPane>
             <AnchorPane fx:id="anchor" layoutX="-68.0" prefHeight="625.0" prefWidth="437.0" styleClass="tloLewe" stylesheets="@../../../css/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="437.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -112,7 +149,7 @@
             </AnchorPane>
             <AnchorPane fx:id="third_form" layoutX="380.0" layoutY="5.0" prefHeight="620.0" prefWidth="510.0" styleClass="tloPrawe" stylesheets="@../../../css/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="437.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Button fx:id="zarejestruj_lekarz" layoutX="109.0" layoutY="186.0" mnemonicParsing="false" onAction="#handleBottomClick" onMouseClicked="#walidacja" prefHeight="50.0" prefWidth="218.0" stylesheets="@../../../css/login.css" text="Zarejestruj się jako lekarz">
+                  <Button fx:id="zarejestruj_lekarz" layoutX="109.0" layoutY="186.0" mnemonicParsing="false" onAction="#handleBottomClick" prefHeight="50.0" prefWidth="218.0" stylesheets="@../../../css/login.css" text="Zarejestruj się jako lekarz">
                      <styleClass>
                         <String fx:value="zaloguj" />
                         <String fx:value="cien" />
@@ -122,7 +159,7 @@
                         <String fx:value="zaloguj" />
                         <String fx:value="cien" />
                      </styleClass></Button>
-                  <Button fx:id="zarejestruj_pielegniarka" layoutX="109.0" layoutY="293.0" mnemonicParsing="false" onAction="#handleBottomClick" onMouseClicked="#walidacja" prefHeight="50.0" prefWidth="218.0" stylesheets="@../../../css/login.css" text="Zarejestruj się jako pielęgniarka">
+                  <Button fx:id="zarejestruj_pielegniarka" layoutX="109.0" layoutY="293.0" mnemonicParsing="false" onAction="#handleBottomClick" prefHeight="50.0" prefWidth="218.0" stylesheets="@../../../css/login.css" text="Zarejestruj się jako pielęgniarka">
                      <styleClass>
                         <String fx:value="zaloguj" />
                         <String fx:value="cien" />

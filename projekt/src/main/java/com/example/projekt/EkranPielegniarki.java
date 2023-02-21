@@ -10,12 +10,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -102,11 +99,33 @@ public class EkranPielegniarki implements Initializable {
     @FXML
     private TextField dd;
 
+    @FXML
+    private Label alert_PESEL;
+
+    @FXML
+    private Label alert_adres;
+
+    @FXML
+    private Label alert_data_ur;
+
+    @FXML
+    private Label alert_email;
+
+    @FXML
+    private Label alert_imie;
+
+    @FXML
+    private Label alert_nazwisko;
+
+    @FXML
+    private Label alert_tel;
+
 
     @FXML
     private AnchorPane main_form;
 
     private List<Pacjenci> pacjenci;
+
     private static <T> List<T> loadAllData(Class<T> type, Session session) {
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> criteria = builder.createQuery(type);
@@ -133,7 +152,6 @@ public class EkranPielegniarki implements Initializable {
     }
 
 
-
     public void setData() {
         Configuration config = new Configuration().configure();
         config.addAnnotatedClass(Pacjenci.class);
@@ -155,10 +173,12 @@ public class EkranPielegniarki implements Initializable {
         p.setNr_telefonu(nr_tel.getText());
         p.setEmail(email.getText());
 
-
-        session.persist(p);
-        transaction.commit();
-        session.close();
+        if (isEmailOk(email.getText()) && isNazwaOk(imie.getText()) && isNazwaOk(nazwisko.getText()) && isTelOk(nr_tel.getText())
+                && isPESELOk(pesel.getText()) && data_ur.getValue() != null && isNazwaOk(adres.getText())) {
+            session.persist(p);
+            transaction.commit();
+            session.close();
+        }
 
         zaktualizuj();
     }
@@ -184,11 +204,12 @@ public class EkranPielegniarki implements Initializable {
         p.setNr_telefonu(nr_tel.getText());
         p.setEmail(email.getText());
 
-
-        session.delete(p);
-
-        transaction.commit();
-        session.close();
+        if (isEmailOk(email.getText()) && isNazwaOk(imie.getText()) && isNazwaOk(nazwisko.getText()) && isTelOk(nr_tel.getText())
+                && isPESELOk(pesel.getText()) && data_ur.getValue() != null && isNazwaOk(adres.getText())) {
+            session.delete(p);
+            transaction.commit();
+            session.close();
+        }
 
         zaktualizuj();
     }
@@ -214,10 +235,12 @@ public class EkranPielegniarki implements Initializable {
         p.setNr_telefonu(nr_tel.getText());
         p.setEmail(email.getText());
 
-
-        session.update(p);
-        transaction.commit();
-        session.close();
+        if (isEmailOk(email.getText()) && isNazwaOk(imie.getText()) && isNazwaOk(nazwisko.getText()) && isTelOk(nr_tel.getText())
+                && isPESELOk(pesel.getText()) && data_ur.getValue() != null && isNazwaOk(adres.getText())) {
+            session.update(p);
+            transaction.commit();
+            session.close();
+        }
 
         zaktualizuj();
     }
@@ -253,6 +276,7 @@ public class EkranPielegniarki implements Initializable {
         email.setText(String.valueOf(pacjentDane.getEmail()));
 
     }
+
     ObservableList<Pacjenci> observableList = FXCollections.observableArrayList();
 
     @Override
@@ -279,12 +303,12 @@ public class EkranPielegniarki implements Initializable {
         if (mouseEvent.getSource() == wyloguj) {
             main_form.getScene().getWindow().hide();
             LoadStages("ekranLogowania.fxml");
-        }
-        else if(mouseEvent.getSource() == umow){
+        } else if (mouseEvent.getSource() == umow) {
             main_form.getScene().getWindow().hide();
             LoadStages("rejestracjaPacjenta.fxml");
         }
     }
+
     private void LoadStages(String fxml) {
         try {
             FXMLLoader x = new FXMLLoader(getClass().getResource(fxml));
@@ -295,6 +319,69 @@ public class EkranPielegniarki implements Initializable {
             stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    private boolean isEmailOk(String s) {
+        return s.matches("\\w{2,24}[a-z]\\d*@{1}\\w{0,24}[a-z].*");
+    }
+
+    private boolean isNazwaOk(String s) {
+        return s.matches("\\w{2,24}[A-Za-z].*");
+    }
+
+
+    private boolean isTelOk(String s) {
+        return s.matches("^[+]?[(]?[0-9]{3}[)]?[-\\s.]?[0-9]{3}[-\\s.]?[0-9]{3}$");
+    }
+
+    private boolean isPESELOk(String s) {
+        return s.matches("^\\d{11}$");
+    }
+
+    @FXML
+    void walidacja(MouseEvent event) {
+        if (!isEmailOk(email.getText()) || email.getText().equals("")) {
+            alert_email.setVisible(true);
+        } else if (isEmailOk(email.getText())) {
+            alert_email.setVisible(false);
+        }
+
+        if (!isNazwaOk(imie.getText()) || imie.getText().equals("")) {
+            alert_imie.setVisible(true);
+        } else if (isNazwaOk(imie.getText())) {
+            alert_imie.setVisible(false);
+        }
+
+        if (!isNazwaOk(nazwisko.getText()) || nazwisko.getText().equals("")) {
+            alert_nazwisko.setVisible(true);
+        } else if (isNazwaOk(nazwisko.getText())) {
+            alert_nazwisko.setVisible(false);
+        }
+
+        if (!isNazwaOk(adres.getText()) || adres.getText().equals("")) {
+            alert_adres.setVisible(true);
+        } else if (isNazwaOk(adres.getText())) {
+            alert_adres.setVisible(false);
+        }
+
+
+        if (!isTelOk(nr_tel.getText()) || nr_tel.getText().equals("")) {
+            alert_tel.setVisible(true);
+        } else if (isTelOk(nr_tel.getText())) {
+            alert_tel.setVisible(false);
+        }
+
+        if (!isPESELOk(pesel.getText()) || pesel.getText().equals("")) {
+            alert_PESEL.setVisible(true);
+        } else if (isPESELOk(pesel.getText())) {
+            alert_PESEL.setVisible(false);
+        }
+
+        if (data_ur.getValue() == null) {
+            alert_data_ur.setVisible(true);
+        } else if (data_ur.getValue() != null) {
+            alert_data_ur.setVisible(false);
         }
     }
 }
