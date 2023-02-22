@@ -1,0 +1,6 @@
+var searchData=
+[
+  ['zaktualizuj_0',['zaktualizuj',['../classcom_1_1example_1_1projekt_1_1_ekran_pielegniarki.html#aba952e1860b2b963b29bd0657f029f45',1,'com.example.projekt.EkranPielegniarki.zaktualizuj()'],['../classcom_1_1example_1_1projekt_1_1_karta_pacjentow.html#ae4334535157d7e878766da86b5d844db',1,'com.example.projekt.KartaPacjentow.zaktualizuj()'],['../classcom_1_1example_1_1projekt_1_1_rejestracja_pacjenta.html#a39893269808095c1fc490f94e4b4ba26',1,'com.example.projekt.RejestracjaPacjenta.zaktualizuj()']]],
+  ['zamknij_1',['zamknij',['../classcom_1_1example_1_1projekt_1_1_ekran_logowania.html#ae5dfb373c51a371e13f0154ae81771df',1,'com.example.projekt.EkranLogowania.zamknij()'],['../classcom_1_1example_1_1projekt_1_1_rejestracja_controller.html#a3f416079817bdf0618c0b0e12e29cf1d',1,'com.example.projekt.RejestracjaController.zamknij()']]],
+  ['zminimalizuj_2',['zminimalizuj',['../classcom_1_1example_1_1projekt_1_1_ekran_logowania.html#a6336cef384c30d318fc8575d548e5889',1,'com.example.projekt.EkranLogowania.zminimalizuj()'],['../classcom_1_1example_1_1projekt_1_1_rejestracja_controller.html#acab4fc206e73dee7d6095f3741adfd14',1,'com.example.projekt.RejestracjaController.zminimalizuj()']]]
+];
